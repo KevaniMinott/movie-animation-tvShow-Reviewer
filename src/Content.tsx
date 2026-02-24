@@ -356,26 +356,26 @@ export function Content({
                         setTimeout(() => {
                           setHideMain(true);
                         }, 401);
-                        setName(topMovies.title);
-                        setTitle(topMovies.name);
-                        setOverview(topMovies.overview);
-                        setPopularity(topMovies.vote_average);
-                        setReleaseDate(topMovies.first_air_date);
-                        setPoster(topMovies.backdrop_path);
-                        setId(topMovies.id);
+                        setName(topMovies?.title);
+                        setTitle(topMovies?.name);
+                        setOverview(topMovies?.overview);
+                        setPopularity(topMovies?.vote_average);
+                        setReleaseDate(topMovies?.first_air_date);
+                        setPoster(topMovies?.backdrop_path);
+                        setId(topMovies?.id);
                         setType('movies');
                       }}
                       className="flex gap-[10px] mt-[5px]"
                     >
                       <div
                         style={{
-                          backgroundImage: `url(https://image.tmdb.org/t/p/w780${topMovies.poster_path})`,
+                          backgroundImage: `url(https://image.tmdb.org/t/p/w780${topMovies?.poster_path})`,
                         }}
                         className="w-[60px] bg-center bg-cover bg-repeat-no h-[80px] bg-white cursor-pointer"
                       ></div>
                       <div className="w-[200px] flex items-center">
                         <p className="text-[12px] font-mono font-bold text-white">
-                          {topMovies.title}
+                          {topMovies?.title}
                         </p>
                       </div>
                     </div>
@@ -384,7 +384,7 @@ export function Content({
               ) : content === 'tvShows' ? (
                 <div>
                   {topRatedTvShows
-                    .filter((shows) => shows.genre_ids[0] !== 16)
+                    .filter((shows) => shows?.genre_ids[0] !== 16)
                     .slice(0, 3)
                     .map((topTvShows, indexTopTv) => (
                       <div
@@ -396,26 +396,26 @@ export function Content({
                           setTimeout(() => {
                             setHideMain(true);
                           }, 401);
-                          setName(topTvShows.name);
-                          setTitle(topTvShows.name);
-                          setOverview(topTvShows.overview);
-                          setPopularity(topTvShows.vote_average);
-                          setReleaseDate(topTvShows.first_air_date);
-                          setPoster(topTvShows.backdrop_path);
-                          setId(topTvShows.id);
+                          setName(topTvShows?.name);
+                          setTitle(topTvShows?.name);
+                          setOverview(topTvShows?.overview);
+                          setPopularity(topTvShows?.vote_average);
+                          setReleaseDate(topTvShows?.first_air_date);
+                          setPoster(topTvShows?.backdrop_path);
+                          setId(topTvShows?.id);
                           setType('tvShows');
                         }}
                         className="flex gap-[10px] mt-[10px]"
                       >
                         <div
                           style={{
-                            backgroundImage: `url(https://image.tmdb.org/t/p/w780${topTvShows.poster_path})`,
+                            backgroundImage: `url(https://image.tmdb.org/t/p/w780${topTvShows?.poster_path})`,
                           }}
                           className="w-[60px] bg-center bg-cover bg-repeat-no h-[80px] bg-white cursor-pointer"
                         ></div>
                         <div className="w-[200px] flex items-center">
                           <p className="text-[12px] font-mono font-bold text-white">
-                            {topTvShows.name}
+                            {topTvShows?.name}
                           </p>
                         </div>
                       </div>
@@ -424,7 +424,7 @@ export function Content({
               ) : (
                 <div>
                   {topRatedAnimation
-                    .filter((animated) => animated.genre_ids[0] === 16)
+                    .filter((animated) => animated?.genre_ids[0] === 16)
                     .slice(0, 3)
                     .map((topAnimated, indexTopAnimated) => (
                       <div
@@ -436,26 +436,26 @@ export function Content({
                           setTimeout(() => {
                             setHideMain(true);
                           }, 401);
-                          setName(topAnimated.name);
-                          setTitle(topAnimated.name);
-                          setOverview(topAnimated.overview);
-                          setPopularity(topAnimated.vote_average);
-                          setReleaseDate(topAnimated.first_air_date);
-                          setPoster(topAnimated.backdrop_path);
-                          setId(topAnimated.id);
+                          setName(topAnimated?.name);
+                          setTitle(topAnimated?.name);
+                          setOverview(topAnimated?.overview);
+                          setPopularity(topAnimated?.vote_average);
+                          setReleaseDate(topAnimated?.first_air_date);
+                          setPoster(topAnimated?.backdrop_path);
+                          setId(topAnimated?.id);
                           setType('animation');
                         }}
                         className="flex gap-[10px] mt-[10px]"
                       >
                         <div
                           style={{
-                            backgroundImage: `url(https://image.tmdb.org/t/p/w780${topAnimated.poster_path})`,
+                            backgroundImage: `url(https://image.tmdb.org/t/p/w780${topAnimated?.poster_path})`,
                           }}
                           className="w-[60px] bg-center bg-cover bg-repeat-no h-[80px] bg-white cursor-pointer"
                         ></div>
                         <div className="w-[200px] flex items-center">
                           <p className="text-[12px] font-mono font-bold text-white">
-                            {topAnimated.name}
+                            {topAnimated?.name}
                           </p>
                         </div>
                       </div>
@@ -484,12 +484,12 @@ export function Content({
                 <div className="flex flex-col  overflow-x-auto hide-scrollbar items-center w-full h-full">
                   <div className="w-full h-[400px] flex mt-[50px]">
                     {searchResults
-                      .filter((results) => results.poster_path !== null)
+                      .filter((results) => results?.poster_path !== null)
                       .map((result, indexSearch) => (
                         <div key={indexSearch} className="ml-[20px]">
                           <div
                             style={{
-                              backgroundImage: `url(https://image.tmdb.org/t/p/w780${result.poster_path ?? ''})`,
+                              backgroundImage: `url(https://image.tmdb.org/t/p/w780${result?.poster_path ?? ''})`,
                             }}
                             onClick={() => {
                               setContentDetails(true);
@@ -498,13 +498,13 @@ export function Content({
                               setTimeout(() => {
                                 setHideMain(true);
                               }, 401);
-                              setName(result.title);
-                              setTitle(result.title);
-                              setOverview(result.overview);
-                              setPopularity(result.vote_average);
-                              setReleaseDate(result.release_date);
-                              setPoster(result.backdrop_path);
-                              setId(result.id);
+                              setName(result?.title);
+                              setTitle(result?.title);
+                              setOverview(result?.overview);
+                              setPopularity(result?.vote_average);
+                              setReleaseDate(result?.release_date);
+                              setPoster(result?.backdrop_path);
+                              setId(result?.id);
                               setType('movies');
                             }}
                             className="md:w-[265px] rounded-[9px] bg-center bg-cover relative md:h-[335px] md:hover:scale-[1.1] md:hover:shadow-[0_0_20px_red] transition-all duration-300  w-[200px] h-[330px] mr-[25px] cursor-pointer"
@@ -544,12 +544,12 @@ export function Content({
               <div className="flex flex-col  overflow-x-auto hide-scrollbar items-center w-full h-full">
                 <div className="w-full h-[400px] flex mt-[50px] ">
                   {searchResults
-                    .filter((results) => results.poster_path !== null)
+                    .filter((results) => results?.poster_path !== null)
                     .map((result, indexSearchTv) => (
                       <div key={indexSearchTv} className="ml-[20px]">
                         <div
                           style={{
-                            backgroundImage: `url(https://image.tmdb.org/t/p/w780${result.poster_path ?? ''})`,
+                            backgroundImage: `url(https://image.tmdb.org/t/p/w780${result?.poster_path ?? ''})`,
                           }}
                           onClick={() => {
                             setContentDetails(true);
@@ -605,8 +605,8 @@ export function Content({
                   {searchResults
                     .filter(
                       (results) =>
-                        results.poster_path !== null &&
-                        results.genre_ids[0] === 16,
+                        results?.poster_path !== null &&
+                        results?.genre_ids[0] === 16,
                     )
                     .map((result, indexSearchAni) => (
                       <div key={indexSearchAni} className="ml-[20px]">
@@ -665,13 +665,13 @@ export function Content({
                     setTimeout(() => {
                       setHideMain(true);
                     }, 401);
-                    setName(movies[display + 12].title);
-                    setTitle(movies[display + 12].title);
-                    setOverview(movies[display + 12].overview);
-                    setPopularity(movies[display + 12].vote_average);
-                    setReleaseDate(movies[display + 12].release_date);
-                    setPoster(movies[display + 12].backdrop_path);
-                    setId(movies[display + 12].id);
+                    setName(movies[display + 12]?.title);
+                    setTitle(movies[display + 12]?.title);
+                    setOverview(movies[display + 12]?.overview);
+                    setPopularity(movies[display + 12]?.vote_average);
+                    setReleaseDate(movies[display + 12]?.release_date);
+                    setPoster(movies[display + 12]?.backdrop_path);
+                    setId(movies[display + 12]?.id);
                     setType('movies');
                   }}
                   style={{
@@ -695,17 +695,17 @@ export function Content({
                       setHideMain(true);
                     }, 401);
                     setTitle(
-                      tvShows.filter((shows) => shows.genre_ids[0] !== 16)[
+                      tvShows.filter((shows) => shows?.genre_ids[0] !== 16)[
                         display
                       ].name,
                     );
                     setName(
-                      tvShows.filter((shows) => shows.genre_ids[0] !== 16)[
+                      tvShows.filter((shows) => shows?.genre_ids[0] !== 16)[
                         display
                       ].name,
                     );
                     setOverview(
-                      tvShows.filter((shows) => shows.genre_ids[0] !== 16)[
+                      tvShows.filter((shows) => shows?.genre_ids[0] !== 16)[
                         display
                       ].overview,
                     );
@@ -715,31 +715,31 @@ export function Content({
                       ].vote_average,
                     );
                     setReleaseDate(
-                      tvShows.filter((shows) => shows.genre_ids[0] !== 16)[
+                      tvShows.filter((shows) => shows?.genre_ids[0] !== 16)[
                         display
                       ].first_air_date,
                     );
                     setPoster(
-                      tvShows.filter((shows) => shows.genre_ids[0] !== 16)[
+                      tvShows.filter((shows) => shows?.genre_ids[0] !== 16)[
                         display
                       ].backdrop_path,
                     );
                     setId(
-                      tvShows.filter((shows) => shows.genre_ids[0] !== 16)[
+                      tvShows.filter((shows) => shows?.genre_ids[0] !== 16)[
                         display
                       ].id,
                     );
                     setType('tvShows');
                   }}
                   style={{
-                    backgroundImage: `url(https://image.tmdb.org/t/p/w780${tvShows.filter((shows) => shows.genre_ids[0] !== 16)[display]?.backdrop_path})`,
+                    backgroundImage: `url(https://image.tmdb.org/t/p/w780${tvShows.filter((shows) => shows?.genre_ids[0] !== 16)[display]?.backdrop_path})`,
                   }}
                   className=" bg-center bg-no-repeat shadow-[0_0_15px_red] bg-cover w-[390px] h-[160px] md:w-[750px] md:h-[220px] rounded-[30px] backdrop-blur-sm bg-white/20 cursor-pointer"
                 >
                   <div className="absolute bottom-[15px]  flex flex-col justify-center items-center h-[20px] backdrop-blur-sm  left-[30px] bg-red-600 text-white shadow-[0_0_15px_red] rounded-[20px] items-center justify-center">
                     <p className="py-4 px-4 font-mono font-bold  text-[15px]">
                       {
-                        tvShows.filter((shows) => shows.genre_ids[0] !== 16)[
+                        tvShows.filter((shows) => shows?.genre_ids[0] !== 16)[
                           display
                         ]?.name
                       }
@@ -755,44 +755,44 @@ export function Content({
                       setHideMain(true);
                     }, 401);
                     setTitle(
-                      tvShows.filter((shows) => shows.genre_ids[0] === 16)[
-                        display
-                      ].name,
+                      animation.filter(
+                        (animated) => animated?.genre_ids[0] === 16,
+                      )[display].name,
                     );
                     setName(
-                      tvShows.filter((shows) => shows.genre_ids[0] === 16)[
-                        display
-                      ].name,
+                      animation.filter(
+                        (animated) => animated?.genre_ids[0] === 16,
+                      )[display].name,
                     );
                     setOverview(
-                      tvShows.filter((shows) => shows.genre_ids[0] === 16)[
-                        display
-                      ].overview,
+                      animation.filter(
+                        (animated) => animated?.genre_ids[0] === 16,
+                      )[display].overview,
                     );
                     setPopularity(
-                      tvShows.filter((shows) => shows.genre_ids[0] === 16)[
-                        display
-                      ].vote_average,
+                      animation.filter(
+                        (animated) => animated?.genre_ids[0] === 16,
+                      )[display].vote_average,
                     );
                     setReleaseDate(
-                      tvShows.filter((shows) => shows.genre_ids[0] === 16)[
-                        display
-                      ].first_air_date,
+                      animation.filter(
+                        (animated) => animated?.genre_ids[0] === 16,
+                      )[display].first_air_date,
                     );
                     setPoster(
-                      tvShows.filter((shows) => shows.genre_ids[0] === 16)[
-                        display
-                      ].backdrop_path,
+                      animation.filter(
+                        (animated) => animated?.genre_ids[0] === 16,
+                      )[display].backdrop_path,
                     );
                     setId(
-                      tvShows.filter((shows) => shows.genre_ids[0] === 16)[
-                        display
-                      ].id,
+                      animation.filter(
+                        (animated) => animated?.genre_ids[0] === 16,
+                      )[display].id,
                     );
                     setType('tvShows');
                   }}
                   style={{
-                    backgroundImage: `url(https://image.tmdb.org/t/p/w780${animation.filter((animated) => animated.genre_ids[0] === 16)[display]?.backdrop_path})`,
+                    backgroundImage: `url(https://image.tmdb.org/t/p/w780${animation.filter((animated) => animated?.genre_ids[0] === 16)[display]?.backdrop_path})`,
                   }}
                   className=" bg-center bg-no-repeat shadow-[0_0_15px_red] bg-cover w-[390px] h-[160px] md:w-[750px] md:h-[220px]  rounded-[30px] backdrop-blur-sm bg-white/20 cursor-pointer"
                 >
@@ -1093,26 +1093,26 @@ export function Content({
                               setTimeout(() => {
                                 setHideMain(true);
                               }, 401);
-                              setName(topMovies.title);
-                              setTitle(topMovies.name);
-                              setOverview(topMovies.overview);
-                              setPopularity(topMovies.vote_average);
-                              setReleaseDate(topMovies.first_air_date);
-                              setPoster(topMovies.backdrop_path);
-                              setId(topMovies.id);
+                              setName(topMovies?.title);
+                              setTitle(topMovies?.name);
+                              setOverview(topMovies?.overview);
+                              setPopularity(topMovies?.vote_average);
+                              setReleaseDate(topMovies?.first_air_date);
+                              setPoster(topMovies?.backdrop_path);
+                              setId(topMovies?.id);
                               setType('movies');
                             }}
                             className="flex gap-[10px] mt-[10px] cursor-pointer"
                           >
                             <div
                               style={{
-                                backgroundImage: `url(https://image.tmdb.org/t/p/w780${topMovies.poster_path})`,
+                                backgroundImage: `url(https://image.tmdb.org/t/p/w780${topMovies?.poster_path})`,
                               }}
                               className="w-[60px] bg-center bg-cover bg-repeat-no h-[80px] bg-white cursor-pointer"
                             ></div>
                             <div className="w-[200px] flex items-center">
                               <p className="text-[12px] font-mono font-bold text-white">
-                                {topMovies.title}
+                                {topMovies?.title}
                               </p>
                             </div>
                           </div>
@@ -1121,7 +1121,7 @@ export function Content({
                   ) : content === 'tvShows' ? (
                     <div>
                       {topRatedTvShows
-                        .filter((shows) => shows.genre_ids[0] !== 16)
+                        .filter((shows) => shows?.genre_ids[0] !== 16)
                         .slice(0, 3)
                         .map((topTvShows, indexTopT) => (
                           <div
@@ -1131,26 +1131,26 @@ export function Content({
                               setTimeout(() => {
                                 setHideMain(true);
                               }, 401);
-                              setName(topTvShows.name);
-                              setTitle(topTvShows.name);
-                              setOverview(topTvShows.overview);
-                              setPopularity(topTvShows.vote_average);
-                              setReleaseDate(topTvShows.first_air_date);
-                              setPoster(topTvShows.backdrop_path);
-                              setId(topTvShows.id);
+                              setName(topTvShows?.name);
+                              setTitle(topTvShows?.name);
+                              setOverview(topTvShows?.overview);
+                              setPopularity(topTvShows?.vote_average);
+                              setReleaseDate(topTvShows?.first_air_date);
+                              setPoster(topTvShows?.backdrop_path);
+                              setId(topTvShows?.id);
                               setType('tvShows');
                             }}
                             className="flex gap-[10px] mt-[10px] cursor-pointer"
                           >
                             <div
                               style={{
-                                backgroundImage: `url(https://image.tmdb.org/t/p/w780${topTvShows.poster_path})`,
+                                backgroundImage: `url(https://image.tmdb.org/t/p/w780${topTvShows?.poster_path})`,
                               }}
                               className="w-[60px] bg-center bg-cover bg-repeat-no h-[80px] bg-white cursor-pointer"
                             ></div>
                             <div className="w-[200px] flex items-center">
                               <p className="text-[12px] font-mono font-bold text-white">
-                                {topTvShows.name}
+                                {topTvShows?.name}
                               </p>
                             </div>
                           </div>
@@ -1159,7 +1159,7 @@ export function Content({
                   ) : (
                     <div>
                       {topRatedAnimation
-                        .filter((animated) => animated.genre_ids[0] === 16)
+                        .filter((animated) => animated?.genre_ids[0] === 16)
                         .slice(0, 3)
                         .map((topAnimated, indexTopA) => (
                           <div
@@ -1169,26 +1169,26 @@ export function Content({
                               setTimeout(() => {
                                 setHideMain(true);
                               }, 401);
-                              setName(topAnimated.name);
-                              setTitle(topAnimated.name);
-                              setOverview(topAnimated.overview);
-                              setPopularity(topAnimated.vote_average);
-                              setReleaseDate(topAnimated.first_air_date);
-                              setPoster(topAnimated.backdrop_path);
-                              setId(topAnimated.id);
+                              setName(topAnimated?.name);
+                              setTitle(topAnimated?.name);
+                              setOverview(topAnimated?.overview);
+                              setPopularity(topAnimated?.vote_average);
+                              setReleaseDate(topAnimated?.first_air_date);
+                              setPoster(topAnimated?.backdrop_path);
+                              setId(topAnimated?.id);
                               setType('animation');
                             }}
                             className="flex gap-[10px] cursor-pointer mt-[10px]"
                           >
                             <div
                               style={{
-                                backgroundImage: `url(https://image.tmdb.org/t/p/w780${topAnimated.poster_path})`,
+                                backgroundImage: `url(https://image.tmdb.org/t/p/w780${topAnimated?.poster_path})`,
                               }}
                               className="w-[60px] bg-center bg-cover bg-repeat-no h-[80px] bg-white cursor-pointer"
                             ></div>
                             <div className="w-[200px] flex items-center">
                               <p className="text-[12px] font-mono font-bold text-white">
-                                {topAnimated.name}
+                                {topAnimated?.name}
                               </p>
                             </div>
                           </div>
